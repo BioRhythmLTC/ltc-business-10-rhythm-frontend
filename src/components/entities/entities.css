@@ -1,0 +1,34 @@
+.entities {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 64px 20px 40px 20px;
+}
+
+.entities__item {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+}
+
+
+.entities__item_common {
+    border-radius: 8px;
+    border: none;
+    width: 217px;
+    height: 28px;
+    font-weight: 900;
+    line-height: 100%;
+    font-size: 24px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.entities__item_entity {
+background-color: #FF0000;
+}
+.entities__item_substring {
+background-color: #008F32;
+}
