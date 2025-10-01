@@ -1,10 +1,12 @@
 import "./App.css";
-import { Search } from "./components/search/search";
+import { Entities } from "./components/entities/entities";
+import { Header } from "./components/header/header";
 
 function App() {
   return (
     <div className="main">
-      <Search />
+      <Header />
+      <Entities />
     </div>
   );
 }
