@@ -1,0 +1,27 @@
+.united {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 32px;
+  align-items: center;
+  justify-content: center;
+}
+
+.united__entity {
+  border: none;
+  border-radius: 8px;
+  padding: 2px 14px;
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 100%;
+}
+
+.united__entity:nth-child(odd) {
+  background-color: #008f32;
+}
+
+.united__entity:nth-child(even) {
+  background-color: #ff0000;
+}

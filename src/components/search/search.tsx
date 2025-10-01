@@ -1,19 +1,11 @@
 import { useState } from "react";
 import "./search.css";
-import { getSearchTypes } from "../../utils/api/api";
-import { useDispatch } from "react-redux";
-import { getSearchString, setResponseData } from "../../utils/slices/slice";
+import { useEntitiesData } from "../../utils/hooks/useEntitiesData";
 
 export const Search = () => {
   const [searchValue, setSearchValue] = useState("");
 
-  const dispatch = useDispatch();
-  const handleGetData = async () => {
-    const data = await getSearchTypes({ text: searchValue });
-    console.log("in conponent", data);
-    dispatch(setResponseData(data));
-    dispatch(getSearchString(searchValue));
-  };
+  const { handleGetData } = useEntitiesData();
 
   return (
     <section className="search">
@@ -25,6 +17,7 @@ export const Search = () => {
         className="search__input"
         type="text"
         placeholder="поиск по товарам"
+        spellCheck
         value={searchValue}
         onChange={(e) => {
           if (e.target.value.length === 0 || /^[^\s].*/.test(e.target.value)) {
@@ -35,7 +28,8 @@ export const Search = () => {
       <button
         className="search__button"
         type="submit"
-        onClick={() => handleGetData()}
+        onClick={() => handleGetData(searchValue)}
+        disabled={searchValue === ""}
       >
         <img className="search__button_icon" src="/arrow.svg" alt="search" />
       </button>

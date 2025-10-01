@@ -2,12 +2,13 @@ import type { IResponse, ISearchText } from "../../types/types";
 
 const baseUrl = "/api/predict";
 
-
-export const getSearchTypes = async ({ text }: ISearchText): Promise<IResponse[]> => {
+export const getSearchTypes = async ({
+  text,
+}: ISearchText): Promise<{ data?: IResponse[]; error?: string }> => {
   try {
     const result = await fetch(baseUrl, {
       method: "POST",
-       headers: {
+      headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -20,9 +21,11 @@ export const getSearchTypes = async ({ text }: ISearchText): Promise<IResponse[]
     }
 
     const data = await result.json();
-    return data;
+
+    return { data };
   } catch (error) {
-    console.log(error);
-    return [];
+    const errorMessage = error instanceof Error ? error.message : String(error);
+
+    return { error: errorMessage, data: [] };
   }
 };
