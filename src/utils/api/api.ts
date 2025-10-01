@@ -1,6 +1,6 @@
 import type { IResponse, ISearchText } from "../../types/types";
 
-const baseUrl = "/api/predict";
+const baseUrl = "http://158.160.156.51:8000/api/predict";
 
 export const getSearchTypes = async ({
   text,
